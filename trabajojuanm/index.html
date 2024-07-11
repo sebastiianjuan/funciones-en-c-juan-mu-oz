@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño e Implementación de una Función en C++</title>
+    <style>
+        
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #7cf8d9;
+            color: #17202A;
+        }
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(to right, #ced3f1, #1f65ce);
+            color: #17202A;
+            height: 200px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background: #b0b9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #4A235A;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .card {
+            background: #fff8f8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            padding: 20px;
+            flex: 1 1 calc(48% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card h1 {
+            color: #4b83fa;
+            margin-top: 0;
+            text-align: center;
+        } 
+       
+        .card pre {
+            background: #000000;
+            color: #2dbb68;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        footer {
+            background:linear-gradient(to right, #ced3f1, #1f65ce);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <style>
+            header h1 {
+                font-family: 'calibri', sans-serif; /* Cambia 'Arial' por la tipografía que prefieras */
+            }
+        </style>
+        <h1>Diseño e Implementación de una Función en C++ por juan muñoz</h1>
+    </header>
+    <nav>
+        <div class="container">
+            
+        </div>
+    </nav>
+    <div class="container content">
+        <div class="card">
+            <h1>Introducción</h1>
+            <p>En C++, el uso de funciones es esencial para escribir código modular y reutilizable.<br> Las funciones permiten dividir un programa en unidades más pequeñas y manejables. <br>En este tutorial, diseñaremos e implementaremos una función que calcula el factorial de un número entero.</p>
+        </div>
+        <div class="card">
+            <h1>Paso 1: Diseño de la Función</h1>
+            <ul>
+                <li><strong>Nombre de la Función:</strong> Debe ser descriptivo. En este caso, <code>factorial</code>.</li>
+                <li><strong>Tipo de Retorno:</strong> Especifica el tipo de dato que la función devolverá. Aquí, será <code>int</code> porque el factorial de un número es un entero.</li>
+                <li><strong>Parámetros de Entrada:</strong> La función necesita un entero como entrada. Este se especifica en la declaración de la función.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h1>Paso 2: Declaración de la Función</h1>
+            <p>Antes de definir la función, se declara su prototipo.<br>Esto informa al compilador sobre la función antes de que se utilice. <br>La declaración se coloca generalmente antes de <code>main()</code> o en un archivo de cabecera separado.</p>
+            <pre>
+int factorial(int n);
+            </pre>
+        </div>
+        <div class="card">
+            <h1>Paso 3: Definición de la Función</h1>
+            <p>La definición de la función incluye el código que realiza la tarea específica.</p>
+            <pre>
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+            </pre>
+        </div>
+        <div class="card">
+            <h1>Paso 4: Llamada a la Función</h1>
+            <p>Para usar la función <code>factorial</code>, se realiza una llamada a la misma desde el cuerpo de <code>main()</code> u otra función.</p>
+            <pre>
+#include &lt;iostream&gt;
+
+int factorial(int n); // Declaración de la función
+
+int main() {
+    int numero = 5;
+    int resultado = factorial(numero); // Llamada a la función
+    std::cout << "El factorial de " << numero << " es: " << resultado << std::endl;
+    return 0;
+}
+
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+            </pre>
+        </div>
+        <div class="card" >
+            <h1>Explicación Detallada</h1>
+            <ol>
+                <li><strong>Declaración de la Función:</strong> <code>int factorial(int n);</code><br>
+                    Indica al compilador que existe una función llamada <code>factorial</code> que toma un entero y devuelve un entero.
+                </li>
+                <li><strong>Definición de la Función:</strong>
+                    <pre>
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+                    </pre>
+                    Este código implementa la lógica para calcular el factorial de un número de manera recursiva.
+                </li>
+                <li><strong>Llamada a la Función:</strong> <code>factorial(numero);</code><br>
+                    Dentro de <code>main()</code>, se llama a la función <code>factorial</code> con el valor de <code>numero</code>.
+                </li>
+            </ol>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+</body>
+</html>
